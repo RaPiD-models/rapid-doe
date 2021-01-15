@@ -32,7 +32,7 @@ setup(
     ),
     author='Simen Eldevik',
     author_email='simen.eldevik@dnvgl.com',
-    url='https://github.com/simeld/rapid-models',
+    url='https://github.com/RaPiD-models/rapid-models',
     packages=find_packages('src'),
     package_dir={'': 'src'},
     py_modules=[splitext(basename(path))[0] for path in glob('src/*.py')],
@@ -64,7 +64,7 @@ setup(
     project_urls={
         'Documentation': 'https://rapid-models.readthedocs.io/',
         'Changelog': 'https://rapid-models.readthedocs.io/en/latest/changelog.html',
-        'Issue Tracker': 'https://github.com/simeld/rapid-models/issues',
+        'Issue Tracker': 'https://github.com/RaPiD-models/rapid-models/issues',
     },
     keywords=[
         # eg: 'keyword1', 'keyword2', 'keyword3',
