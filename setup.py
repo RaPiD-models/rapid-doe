@@ -71,8 +71,10 @@ setup(
     ],
     python_requires='>=3.6',
     install_requires=[
+        'numpy>=1.19.5'
         'scipy>=1.6.0',
         'pyDOE2>=1.3.0',
+        'plotly>=4.14.3'
         # eg: 'aspectlib==1.1.1', 'six>=1.7',
     ],
     extras_require={
@@ -86,3 +88,4 @@ setup(
         ]
     },
 )
+ve  

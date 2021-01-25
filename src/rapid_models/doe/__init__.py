@@ -1,1 +1,1 @@
-from pyDOE2 import lhs
+from pyDOE2 import lhs, fullfact
