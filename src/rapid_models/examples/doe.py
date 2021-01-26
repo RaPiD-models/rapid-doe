@@ -1,19 +1,19 @@
 import numpy as np
-import plotly
+from scipy import stats
 import plotly.graph_objs as go
 
 from rapid_models import doe
 
 
-def doe_example_plot(nsamp=25, doe_type='lhs', dimensions=2, asHtml=True):
+def doe_example_plot(nsamp=25, doe_type='lhs', dimensions=2):
 
     if doe_type == "lhs":
         xs = doe.lhs(2, nsamp)
-    elif doe_type == "ffact":
+    elif doe_type == "fullfact":
         ffact = doe.fullfact([int(nsamp**(0.5))]*2)
         ffact_norm = ffact/ffact.max()
         xs = ffact_norm+0.01
-    elif doe_type == "al":
+    elif doe_type == "adaptive":
         xs = doe.lhs(2, int(nsamp/4))
         tmp = np.random.rand(int(nsamp/4*3))  # *(1-0.5)+0.5
 
@@ -21,9 +21,9 @@ def doe_example_plot(nsamp=25, doe_type='lhs', dimensions=2, asHtml=True):
 
     if doe_type == "lhs":
         bShowGrid = True
-        tickvals = np.linspace(0, 1, nsamp+1)
     else:
         bShowGrid = False
+    tickvals = np.linspace(0, 1, nsamp+1)
 
     fig = go.Figure()
 
@@ -50,8 +50,4 @@ def doe_example_plot(nsamp=25, doe_type='lhs', dimensions=2, asHtml=True):
                       plot_bgcolor="rgba(0,0,0,0)"  # "#FFFFFF"
                       )
 
-    if asHtml:
-        # return fig.to_html(include_plotlyjs='cdn', full_html=False)
-        return fig.to_image(format='png')
-    else:
-        return fig.to_json(pretty=False)
+    return fig
