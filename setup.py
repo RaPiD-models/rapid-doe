@@ -74,7 +74,9 @@ setup(
         'numpy>=1.19.5'
         'scipy>=1.6.0',
         'pyDOE2>=1.3.0',
-        'plotly>=4.14.3'
+        'plotly>=4.14.3',
+        'psutil>=5.8.0',
+        'kaleido>=0.1.0'
         # eg: 'aspectlib==1.1.1', 'six>=1.7',
     ],
     extras_require={
