@@ -1,5 +1,6 @@
 
 import gpytorch
+import torch 
 
 class ExactGPModel(gpytorch.models.ExactGP):
     """
