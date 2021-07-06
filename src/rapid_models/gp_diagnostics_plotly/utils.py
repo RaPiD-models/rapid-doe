@@ -1,5 +1,6 @@
 
 from scipy.stats import norm
+import numpy as np
 
 def snorm_qq(x):
     """
