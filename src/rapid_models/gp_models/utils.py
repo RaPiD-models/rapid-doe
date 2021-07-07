@@ -1,5 +1,22 @@
 import gpytorch
 
+def optim_step(model, loss_function, optimizer):
+    """
+    Return current loss and perform one optimization step
+    """
+    # zero the gradients
+    optimizer.zero_grad()
+
+    # compute output from model
+    output = model(model.train_inputs[0])
+
+    # calc loss and backprop gradients
+    loss = -loss_function(output, model.train_targets)
+    loss.backward()
+    optimizer.step()
+
+    return loss.item() 
+
 def gpytorch_kernel_Matern(var, ls, nu = 2.5):
     """
     Return a Matern kernel with specified kernel variance (var) and lengthscales (ls)
