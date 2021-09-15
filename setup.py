@@ -76,7 +76,10 @@ setup(
         'pyDOE2>=1.3.0',
         'plotly>=4.14.3',
         'psutil>=5.8.0',
-        'kaleido>=0.1.0'
+        'kaleido>=0.1.0',
+        'torch>=1.9.0+cu102',
+        # 'torchvision==0.10.0+cu102',
+        # 'torchaudio===0.9.0'
         # eg: 'aspectlib==1.1.1', 'six>=1.7',
     ],
     extras_require={
