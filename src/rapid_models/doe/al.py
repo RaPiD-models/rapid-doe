@@ -51,7 +51,7 @@ def AL_McKay92_idx(gp_std_at_lhs, nNew=1):
     return idx, Timp
 
 
-def ALC_idx(kernel_fn, X_train, X_lhs, nNew=1):
+def AL_Cohn96_idx(kernel_fn, X_train, X_lhs, nNew=1):
     '''Active learning by Cohn 1996
     Return index of nNew points which gives the largest global variance reduction
 
@@ -71,9 +71,9 @@ def ALC_idx(kernel_fn, X_train, X_lhs, nNew=1):
     Cinv = np.linalg.inv(C_train)  # OK
     Cstar = C_allx[n_train:, :n_train]  # OK
 
-    kstKkst = dotdot_a_b_aT_for_row_in_a(Cstar, C_train, Cstar.T)  # OK
+    kstKkst = dotdot_a_b_aT_for_row_in_a(Cstar, C_train)  # OK
 
-    tmpT = dotdot_a_b_aT(Cstar, Cinv, Cstar.T) - C_lhs
+    tmpT = dotdot_a_b_aT(Cstar, Cinv) - C_lhs
 
     T_ALCs = np.einsum('ij,i->i', tmpT, 1/(C_lhs.diagonal()-kstKkst))
 
